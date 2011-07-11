@@ -62,7 +62,7 @@ package PerlIO::bitswap;
 use warnings;
 use strict;
 
-our $VERSION = "0.000";
+our $VERSION = "0.001";
 
 require XSLoader;
 XSLoader::load(__PACKAGE__, $VERSION);
@@ -80,7 +80,7 @@ Andrew Main (Zefram) <zefram@fysh.org>
 
 =head1 COPYRIGHT
 
-Copyright (C) 2010 Andrew Main (Zefram) <zefram@fysh.org>
+Copyright (C) 2010, 2011 Andrew Main (Zefram) <zefram@fysh.org>
 
 =head1 LICENSE
 

@@ -102,7 +102,6 @@ static IV PerlIObitswap_pushed(pTHX_ PerlIO *f, char const *mode, SV *arg,
 		p = SvPV(arg, alen);
 		e = p + alen;
 		if(p[0] == '0') {
-			int shift, max;
 			if(p[1] == 'x' || p[1] == 'X') {
 				radix = 16;
 				p += 2;
@@ -158,6 +157,8 @@ static IV PerlIObitswap_popped(pTHX_ PerlIO *f)
 static SV *PerlIObitswap_getarg(pTHX_ PerlIO *f, CLONE_PARAMS *param, int flags)
 {
 	struct PerlIObitswap *bs = PerlIOSelf(f, struct PerlIObitswap);
+	PERL_UNUSED_ARG(param);
+	PERL_UNUSED_ARG(flags);
 	U32 swaps = bs->octetswaps << 3;
 	if(bs->bitswap_table) {
 		U8 s = bs->bitswap_table[1];
@@ -228,7 +229,7 @@ static SSize_t PerlIObitswap_read(pTHX_ PerlIO *f, void *vbuf, Size_t count)
 		if(dctdone & blockbits) goto eio;
 		swap_blocks(bs, cbuf, dctdone);
 		ndone += dctdone;
-		if(dctdone != dctcount)
+		if((Size_t)dctdone != dctcount)
 			return ndone;
 		cbuf += dctdone;
 		count -= dctdone;
@@ -242,7 +243,7 @@ static SSize_t PerlIObitswap_read(pTHX_ PerlIO *f, void *vbuf, Size_t count)
 			return bufdone;
 		if(bufdone == 0)
 			return ndone;
-		if(bufdone != blocksize) goto eio;
+		if((Size_t)bufdone != blocksize) goto eio;
 		swap_blocks(bs, bs->buffer, blocksize);
 		bs->bufflags |= BUFFLAG_READING;
 		bs->bufpos = count;
@@ -279,7 +280,7 @@ static SSize_t PerlIObitswap_write(pTHX_ PerlIO *f, void const *vbuf,
 		bufdone = PerlIO_write(PerlIONext(f), bs->buffer, blocksize);
 		if(bufdone < 0)
 			return bufdone;
-		if(bufdone != blocksize) goto eio;
+		if((Size_t)bufdone != blocksize) goto eio;
 		ndone = bufavail;
 		cbuf += bufavail;
 		count -= bufavail;
@@ -298,13 +299,12 @@ static SSize_t PerlIObitswap_write(pTHX_ PerlIO *f, void const *vbuf,
 			return dctdone;
 		if(dctdone & blockbits) goto eio;
 		ndone += dctdone;
-		if(dctdone != dctcount)
+		if((Size_t)dctdone != dctcount)
 			return ndone;
 		cbuf += dctdone;
 		count -= dctdone;
 	}
 	if(count) {
-		SSize_t bufdone;
 		if(!bs->buffer)
 			Newx(bs->buffer, blocksize, U8);
 		Copy(cbuf, bs->buffer, count, U8);
@@ -383,6 +383,8 @@ static PerlIO_funcs PerlIObitswap_funcs = {
 };
 
 MODULE = PerlIO::bitswap PACKAGE = PerlIO::bitswap
+
+PROTOTYPES: DISABLE
 
 BOOT:
 	PerlIO_define_layer(aTHX_ &PerlIObitswap_funcs);

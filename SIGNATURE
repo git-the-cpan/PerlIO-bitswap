@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.64.
+signed via the Module::Signature module, version 0.68.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,28 +14,29 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 e0c0ea527def82737623a0a0a49af1d1e6047fe6 .cvsignore
-SHA1 9380a9bb8ca5b1600012a9322bb22ad4b0680e0e Build.PL
-SHA1 cc805d3c58e1b9cb8a7c04a71b7c995e4d3ab089 Changes
-SHA1 dca7984eb191628ded3801f4a0b2127754cf22ea MANIFEST
-SHA1 c29c030bfa81fde9402313af3f0aabf1c97b5f5d META.yml
-SHA1 cbe646e9eec8e4cf1175c7fd8cb87a31ad241a82 Makefile.PL
-SHA1 c7536b324c35a068677cacabf0e1f6642fed3214 README
+SHA1 3e0ce1793296985d780613d3f10571814a57e443 .cvsignore
+SHA1 cbb7cf9ecab45886006af27d809d59177a1c9fc0 Build.PL
+SHA1 200d4fbcc7ce7315c82b1cd8e52593a5a50d46be Changes
+SHA1 e160d0b1caff0d0fe52cf604d54b11fd61bf8013 MANIFEST
+SHA1 93e3b73f54e9352135c2cceeacbbfcf3b9cb4b38 META.json
+SHA1 9f38ab3cd81c100bb3388c532f1bfbc86851f8b3 META.yml
+SHA1 ac10abef4842e562f11f09847244c1a1b1bcca06 Makefile.PL
+SHA1 f90c881415a0ebf373db0ef57e7465924526bed5 README
 SHA1 e37012666de213f1c1a8172c4bac305af20e9c15 lib/PerlIO/.cvsignore
-SHA1 c54467be86d86fb4ea66fda5b85eaac54caa7985 lib/PerlIO/bitswap.pm
-SHA1 9bb154db91751ee4afced8b509a81261fa497258 lib/PerlIO/bitswap.xs
+SHA1 aa1904b995fa0b60b21f46db2ce2b245c5401cff lib/PerlIO/bitswap.pm
+SHA1 7ab45bd3da15ab2854768dec51b7c204eb31f1ea lib/PerlIO/bitswap.xs
 SHA1 1042e7b337c21a0505f17f7395a4f8a573b3d3cc t/eof.t
 SHA1 aa96f7ea3727e3f8c6c960df21f1c98657945af8 t/partial.t
-SHA1 0e141eecf3ca4903ef38d9413b5403a9ddb0392f t/pod_cvg.t
-SHA1 74a957cd8b93f25672ecc6aa578a671d084dd343 t/pod_syn.t
+SHA1 904d9a4f76525e2303e4b0c168c68230f223c8de t/pod_cvg.t
+SHA1 65c75abdef6f01a5d1588a307f2ddfe2333dc961 t/pod_syn.t
 SHA1 5d899bac238aa4de41865f01abf254f3fd86bdd9 t/read.t
 SHA1 2980a1c991f0632e99b81358f5d7dacb82d48bd6 t/seek.t
 SHA1 765b0dfff3855765c4b81099211218940056551b t/tell.t
 SHA1 d46725ef0b0606269b0a505b7e4c3f2a695ddaba t/write.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.9 (GNU/Linux)
+Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAkxBlHsACgkQOV9mt2VyAVEknQCfaQduR/ILLp6NXQO9RI7yF2zE
-wHgAoJ9b7bL/0qJCQ8xb17u6ngtrsyfh
-=7bLz
+iEYEARECAAYFAk4bSUkACgkQOV9mt2VyAVGOhACdGoHZx4E0XvcHIkIpfnz13m+v
+FYAAn3jSjH5W2ZQud/SrSNEnz9XetHjl
+=qw+g
 -----END PGP SIGNATURE-----
