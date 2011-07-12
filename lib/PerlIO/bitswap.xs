@@ -4,6 +4,10 @@
 #include "XSUB.h"
 #include "perliol.h"
 
+#ifndef PERL_UNUSED_ARG
+# define PERL_UNUSED_ARG(x) PERL_UNUSED_VAR(x)
+#endif /* !PERL_UNUSED_ARG */
+
 #ifndef Newx
 # define Newx(v,n,t) New(0,v,n,t)
 #endif /* !Newx */
